@@ -1,3 +1,4 @@
+//principal
 const prompt = require('prompt-sync')()
 
 let contatos = require('./contatos')
@@ -44,9 +45,13 @@ function menu(){
                 }else{
                     let novoNome = prompt('dgite o nome: ')
                     let novoEmail = prompt('digite o email: ')
-                    let novoTelefone = prompt('digite o numero de telefone: ')
-                    atualizar(id,{nome: novoNome,email:novoEmail,telefone: novoTelefone})
-                    console.log('contato atualizado com sucesso!!')
+                    let novosTelefones = []
+                    let novoTelefone
+                    while((novoTelefone = prompt('digite o telefone(deixe em branco para sair): '))){
+                        novosTelefones.push(novoTelefone)
+                    }
+                    atualizar(id,{nome: novoNome,email:novoEmail,telefone: novosTelefones})
+                    
                 }
                 
                
